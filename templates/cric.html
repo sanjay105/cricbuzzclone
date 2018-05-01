@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matches</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+</head>
+<body>
+<div>
+<h1 align=" center">Match List</h1>
+<table style="color:blue" align="center" border="width:100%"><tr>
+    <th>ID</th>
+    <th>Series</th>
+    <th>Match</th>
+    <th>Match Number</th>
+    <th>Type</th>
+    <th>Match State</th>
+    <th>Status</th>
+    <th>Scorecard</th>
+    </tr>
+{%for stud in clists%}
+    <tr style="color:blue">
+        <td>{{stud.id}}</td>
+        <td>{{stud.srs}}</td>
+        <td>{{stud.mchdesc}}</td>
+        <td>{{stud.mnum}}</td>
+        <td>{{stud.type}}</td>
+        <td>{{ stud.mchstate }}</td>
+        <td>{{ stud.status }}</td>
+    {% if stud.mchstate != 'Complete' %}
+        <td> <a href="http://localhost:8000/scorecard/{{ stud.id }}">ScoreCard</a> </td>
+    {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scorecard</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+</head>
+<body>
+<div>
+
+    <h2 align="center" >{{ matchinfo.srs }}</h2>
+    <h2 align="center" >{{ matchinfo.mchdesc }}</h2>
+    <h2 align="center" >{{ matchinfo.status }}</h2>
+</div>
+<div>
+<h1 align=" center">{{ batseq }}</h1>
+<h2>Batting</h2>
+<table style="color:blue" align="center" border="width:100%"><tr>
+    <th>Name</th>
+    <th>Runs</th>
+    <th>Balls</th>
+    <th>Fours</th>
+    <th>Sixes</th>
+    <th>Dismissal</th>
+
+    </tr>
+{%for stud in batlists%}
+    <tr style="color:blue">
+        <td>{{stud.name}}</td>
+        <td>{{stud.runs}}</td>
+        <td>{{stud.balls}}</td>
+        <td>{{stud.fours}}</td>
+        <td>{{stud.six}}</td>
+        <td>{{ stud.dismissal }}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+<div>
+    <h2>Score:{{ board.score }} / {{ board.wick }}    Overs:{{ board.overs }}    Runrate:{{ board.rr }}</h2>
+</div>
+<div>
+<h2>Bowling</h2>
+<table style="color:blue" align="center" border="width:100%"><tr>
+    <th>Name</th>
+    <th>Overs</th>
+    <th>Maidens</th>
+    <th>Runs</th>
+    <th>Wickets</th>
+
+    </tr>
+{%for stud in bowllists%}
+    <tr style="color:blue">
+        <td>{{stud.name}}</td>
+        <td>{{stud.overs}}</td>
+        <td>{{stud.maidens}}</td>
+        <td>{{stud.runs}}</td>
+        <td>{{stud.wickets}}</td>
+
+
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<div>
+<h1 align=" center">{{ bowlseq }}</h1>
+<h2>Batting</h2>
+<table style="color:blue" align="center" border="width:100%"><tr>
+    <th>Name</th>
+    <th>Runs</th>
+    <th>Balls</th>
+    <th>Fours</th>
+    <th>Sixes</th>
+    <th>Dismissal</th>
+
+    </tr>
+{%for stud in bat1lists%}
+    <tr style="color:blue">
+        <td>{{stud.name}}</td>
+        <td>{{stud.runs}}</td>
+        <td>{{stud.balls}}</td>
+        <td>{{stud.fours}}</td>
+        <td>{{stud.six}}</td>
+        <td>{{ stud.dismissal }}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+<div>
+    <h2>Score:{{ board.score1 }} / {{ board.wick1 }}    Overs:{{ board.overs1 }}   Runrate:{{ board.rr1 }} </h2>
+</div>
+<div>
+<h2>Bowling</h2>
+<table style="color:blue" align="center" border="width:100%"><tr>
+    <th>Name</th>
+    <th>Overs</th>
+    <th>Maidens</th>
+    <th>Runs</th>
+    <th>Wickets</th>
+
+    </tr>
+{%for stud in bowl1lists%}
+    <tr style="color:blue">
+        <td>{{stud.name}}</td>
+        <td>{{stud.overs}}</td>
+        <td>{{stud.maidens}}</td>
+        <td>{{stud.runs}}</td>
+        <td>{{stud.wickets}}</td>
+
+
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<div>
+    {% for i in comm %}
+        <p>{{ i }}</p>
+    {% endfor %}
+</div>
+</body>
+</html>
